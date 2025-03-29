@@ -8,11 +8,11 @@ def timeConversion(s):
 
     if period == 'AM':
         if hh == 12:
-            hh = 0 #midgnight (12am - 00hh)
+            hh = 00 #midgnight (12am - 00hh)
     else:
         if hh != 12:
             hh += 12
-    return f"{hh:0}:{mm}:{ss_period}"
+    return f"{hh:00}:{mm}:{ss_period}"
 
 if __name__ == '__main__':
    
