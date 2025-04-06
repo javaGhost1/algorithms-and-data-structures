@@ -1,6 +1,6 @@
 
 
-def CountApplesAndOranges(s, t, a, b, apples, oranges):
+def countApplesAndOranges(s, t, a, b, apples, oranges):
     apple_count = 0
     for d in apples:
         # check if it flls on house
@@ -17,13 +17,11 @@ def CountApplesAndOranges(s, t, a, b, apples, oranges):
     print(oranges_count)
 
 
-first_multiple_input = input().rstrip().split()
-s = int(first_multiple_input[0])
-t = int(first_multiple_input[1])
+s = 7
+t = 11
+a = 5
+b = 15
+apples = [-2, 2, 1]
+oranges = [5, -6]
 
-second_multiple_input = input().rstrip().split()
-a = int(second_multiple_input[0])
-b = int(second_multiple_input[1])
-
-apples = list(map(int, input().rstrip().split()))
-oranges = list(map(int, input().rstrip().split()))
+countApplesAndOranges(s, t, a, b, apples, oranges)
