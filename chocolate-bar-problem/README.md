@@ -38,16 +38,6 @@ Return the total number of chocolates Sam can eat.
 2. **Check for Wrappers**: After each chocolate purchase, check if Sam can use wrappers for a free chocolate, and add to the count.
 3. **Edge Handling**: Ensure that negative or impossible conditions (like not enough money or wrappers) are handled properly.
 
-```python
-def chocolate(s, d, m):
-    # Initialise the count of chocolates
-    count = 0
-    for i in range(len(s)-m+1):
-        # Check if the sum of chocolate bars equals the money Sam has
-        if sum(s[i:i+m]) == d:
-            count += 1
-    return count
-
 ## Explanation
 Given a list of prices **[1, 2, 1, 3, 2]**, total money 3, and m = 2 (indicating Sam buys 2 chocolates at once), the function calculates how many combinations of the 2 chocolates **sum** up to the available money.
 
