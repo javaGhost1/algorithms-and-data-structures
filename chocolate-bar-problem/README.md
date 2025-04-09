@@ -1,27 +1,75 @@
-# 🎂 Birthday Chocolate (Subarray Division)
+# Chocolate Bar Problem
 
-## Problem Description
+## Problem Statement
 
-Given a list of integers representing pieces of chocolate, and two integers `d` and `m` representing Ron's birth day and birth month respectively, determine how many ways the chocolate can be divided into `m` contiguous pieces such that the sum of those pieces is equal to `d`.
+Sam loves chocolate. He goes to a store with some money, and he is allowed to buy chocolate bars for a certain price. After eating one chocolate, he can get an additional chocolate bar by returning some wrappers. The task is to determine how many chocolates Sam can eat, given the amount of money he has, the price of a single chocolate, and the number of wrappers needed for a free chocolate bar.
 
-This is a classic problem known as **Subarray Division**.
+You are given the following:
+- A list of integers representing the prices of the chocolate bars.
+- An integer `d`, representing the total money Sam has.
+- An integer `m`, representing the number of chocolate bars he can buy at once.
 
----
-
-## 🧠 Problem Statement
-
-You are given an array of integers `s`, and two integers:
-- `d`: the day of the month (target sum)
-- `m`: the month (number of elements in subarray)
-
-You must count how many contiguous subarrays of length `m` sum up to `d`.
+Return the total number of chocolates Sam can eat.
 
 ---
 
-## 🧪 Example
+## Constraints
 
-### Input:
+- 1 ≤ s ≤ 10^5
+- 1 ≤ d ≤ 10^5
+- 1 ≤ m ≤ 10^5
+- The list `s` will contain integers that represent the prices of each chocolate bar.
+
+---
+
+## Solution
+
+### Edge Cases
+
+- If Sam has no money (`d = 0`), the result will be `0`.
+- If there are fewer chocolates than `m`, no chocolate can be bought at once.
+- If the number of wrappers doesn't suffice for extra chocolates, only a basic chocolate count will be returned.
+
+---
+
+### Approach
+
+1. **Iterate through the list**: Loop through the list of prices and calculate the total chocolates that can be bought given the amount of money (`d`).
+2. **Check for Wrappers**: After each chocolate purchase, check if Sam can use wrappers for a free chocolate, and add to the count.
+3. **Edge Handling**: Ensure that negative or impossible conditions (like not enough money or wrappers) are handled properly.
+
 ```python
-s = [1, 2, 1, 3, 2]
-d = 3
-m = 2
+def chocolate(s, d, m):
+    # Initialise the count of chocolates
+    count = 0
+    for i in range(len(s)-m+1):
+        # Check if the sum of chocolate bars equals the money Sam has
+        if sum(s[i:i+m]) == d:
+            count += 1
+    return count
+
+## Explanation
+Given a list of prices **[1, 2, 1, 3, 2]**, total money 3, and m = 2 (indicating Sam buys 2 chocolates at once), the function calculates how many combinations of the 2 chocolates **sum** up to the available money.
+
+For example:
+s = [1, 2, 1, 3, 2] 
+d = 3             
+m = 2   
+
+result = chocolate(s, d, m)
+print(result) # Output: 2
+
+In the case above, there are two possible combinations of two chocolates that sum up to 3:
+
+Chocolates at indices 0 and 1 (prices 1 + 2)
+
+Chocolates at indices 2 and 3 (prices 1 + 2)
+
+## Complexity
+- Time Complexity: O(n * m) → We loop through the list and check sums of sublists of size m.
+
+- Space Complexity: O(1) → The function uses a constant amount of extra space.
+
+>*"Life is like a chocolate bar, enjoy every bit of it."*
+
+**javaGhost1**
