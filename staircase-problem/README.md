@@ -40,8 +40,10 @@ This ensures the staircase is right-aligned, with the correct amount of spacing 
 
 For `n = 6`, the output will be:
 
- #
-##
+'''   #
+'''  ##
+''' ###
+'''####
 
 Each line `i` contains:
 - `n - i` spaces
