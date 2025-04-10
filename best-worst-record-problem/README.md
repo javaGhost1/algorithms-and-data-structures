@@ -1,4 +1,4 @@
-Here's the **README** for the `breakingRecords` problem:
+Here's `breakingRecords` problem:
 
 ---
 
